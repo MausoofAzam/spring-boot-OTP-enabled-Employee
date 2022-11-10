@@ -39,7 +39,7 @@ public String generateOTP() throws MessagingException{
 		replacements.put("otpnum", String.valueOf(otp));
 		String message = template.getTemplate(replacements);
 
-		emailService.sendOtpMessage("mausoofazam1234@gmail.com", "OTP-SpringBoot", message);
+		emailService.sendOtpMessage("123@gmail.com", "OTP-SpringBoot", message);
 		
 return "otppage";
 }
