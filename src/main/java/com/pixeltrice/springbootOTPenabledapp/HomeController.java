@@ -21,7 +21,7 @@ public class HomeController {
     
     @Autowired
     public OTPService otpService;
-    @GetMapping("/")
+    @GetMapping("/home")
     public String homePage(Model model) {
     String message = " Welcome to Home Page";
         model.addAttribute("appName", appName);

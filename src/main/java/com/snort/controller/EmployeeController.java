@@ -24,7 +24,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 	// display list of Employees
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String viewHomePage(Model model) {
 		model.addAttribute("employeeList", employeeService.getAllEmployees());
 		return "index";
@@ -43,7 +43,7 @@ public class EmployeeController {
 		// save employee to database
 		System.out.println("Emp data : " + employee);
 		employeeService.saveEmployee(employee);
-		return "redirect:/home";
+		return "redirect:/";
 	}
 
 	@GetMapping("/showFormForUpdate/{id}")
@@ -62,7 +62,7 @@ public class EmployeeController {
 		// calling delete employee method
 		this.employeeService.deleteEmployeeById(id);
 
-		return "redirect:/home";
+		return "redirect:/";
 
 	}
 

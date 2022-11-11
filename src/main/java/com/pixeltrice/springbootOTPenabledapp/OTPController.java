@@ -26,6 +26,12 @@ public OTPService otpService;
 @Autowired
 public EmailService emailService;
 
+
+@GetMapping("/index") 
+public String index() {
+	return "index";
+}
+
 @GetMapping("/generateOtp")
 public String generateOTP() throws MessagingException{
 	
@@ -39,7 +45,7 @@ public String generateOTP() throws MessagingException{
 		replacements.put("otpnum", String.valueOf(otp));
 		String message = template.getTemplate(replacements);
 
-		emailService.sendOtpMessage("123@gmail.com", "OTP-SpringBoot", message);
+		emailService.sendOtpMessage("", "OTP-SpringBoot", message);
 		
 return "otppage";
 }
@@ -59,7 +65,7 @@ public @ResponseBody String validateOtp(@RequestParam("otpnum") int otpnum){
 		      if(otpnum == serverOtp){
 		          otpService.clearOTP(username);
 		
-                  return "index";
+                  return "OTP Validated Successfully"; 
                 } 
 		        else {
                     return FAIL;
